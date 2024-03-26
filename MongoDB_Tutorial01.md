@@ -150,7 +150,10 @@ test_db001> db.people_001.deleteMany({food:{$exists:false}})
 ```
 ![image](https://github.com/Kittisak008B/mongodb/assets/157298910/85f64411-a005-4324-bbf4-5bdff247d894)
 
-
+```
+# delete multiple documents --> use the deleteMany() method along with the $in operator:
+ex:  db.people_001.deleteMany({ name: {$in: [ 'Pig', 'Sam' ]} });
+```
 
 
 
