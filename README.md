@@ -119,7 +119,7 @@ test_db001> db.people_001.updateOne({_id: ObjectId('6602f075a4d04c0b66d14a0e')},
 test_db001> db.people_001.updateOne({_id: ObjectId('6602f075a4d04c0b66d14a0e')},{$unset:{exitDate:""}})
 ```
 ![image](https://github.com/Kittisak008B/mongodb/assets/157298910/3dd0ef28-b0fb-4316-a150-54f7bf3de225)
-#### updateMany
+#### .updateMany()
 ```
 test_db001> db.people_001.updateMany({} , {$set:{jail:true}})
 ```
@@ -130,10 +130,23 @@ test_db001> db.people_001.updateMany({exitDate:{$exists:false}} , {$set:{exitDat
 ```
 ![image](https://github.com/Kittisak008B/mongodb/assets/157298910/2ef32f47-0bd9-482b-a44f-5352edb239e4)
 
-
-
-
-
+## delete
+#### .deleteOne()
+```
+test_db001> db.people_001.deleteOne({name:"Nancy"})
+```
+![image](https://github.com/Kittisak008B/mongodb/assets/157298910/a3b13120-6fea-4fc5-ab8c-b178e7a81a5e)
+#### .deleteMany()  
+##### Delete all data with an age equal to 60  --> delete Pig
+```
+test_db001> db.people_001.deleteMany({age:60})
+```
+![image](https://github.com/Kittisak008B/mongodb/assets/157298910/58742a57-3fae-452e-b383-461197212885)
+#####  Delete all data where the 'food' field does not exist. --> delete Chicken and Sam
+```
+test_db001> db.people_001.deleteMany({food:{$exists:false}})
+```
+![image](https://github.com/Kittisak008B/mongodb/assets/157298910/85f64411-a005-4324-bbf4-5bdff247d894)
 
 
 
