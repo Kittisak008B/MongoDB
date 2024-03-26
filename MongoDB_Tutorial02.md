@@ -84,7 +84,22 @@ test_db001> db.people_001.find({age:{$not:{$lt:65}}})
 ```
 ![image](https://github.com/Kittisak008B/mongodb/assets/157298910/089140a9-e855-4510-b929-845c3573da2f)
 
+```
+#Explain a Query
+# sql
+EXPLAIN SELECT city, state, pop 
+            FROM zips 
+WHERE state = 'NY' AND pop BETWEEN 100 AND 400 
+ORDER BY pop DESC 
+LIMIT 10;
 
+# MongoDB
+db.zips.explain().find(
+    { state: "NY", pop: { $gte: 100, $lte: 400 }}, 
+    {_id: 0, state: 1, city: 1, pop: 1}
+    ).sort({pop: -1})
+    .limit(10)
+```
 
 
 
